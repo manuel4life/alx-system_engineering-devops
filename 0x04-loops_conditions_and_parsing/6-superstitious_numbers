@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# A Bash script that displays numbers from 1 to 20 and:
+# A Bash script that displays numbers from 1 to 20
 
 # Displays 4 and then bad luck from China for the 4th loop iteration
 # Displays 9 and then bad luck from Japan for the 9th loop iteration
