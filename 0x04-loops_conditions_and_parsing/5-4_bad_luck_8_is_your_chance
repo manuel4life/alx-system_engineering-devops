@@ -1,5 +1,4 @@
 #!/usr/bin/env bash 
-
 # A Bash script that loops from 1 to 10
 # Display's bad luck for the 4th loop iteration
 # Display's good luck for the 8th loop iteration
