@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# It returns a page.
+/etc/init.d/apache2 restart
