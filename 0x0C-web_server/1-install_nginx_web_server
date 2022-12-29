@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#This script updates the package manager cache, installs nginx, stops the nginx service,
+#modifies the nginx configuration file.
+
+# update package manager cache
+sudo apt-get update -y
+sudo apt-get install -y nginx
+
+# create the index page
+echo "Hello World!" > sudo tee /var/www/html/index.html
+
+# starts the nginx service
+service nginx starts
+
