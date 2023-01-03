@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # This script redirects a page
 
-sudo apt-get update
-sudo apt-get install -y nginx
-echo "Hello World!" > index.html
-sudo mv index.html /var/www/html
-
-
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo chmod -R 755 /var/www
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 echo "server {
    listen 80 default_server;
    listen [::]:80 default_server;
+
+   add_header X-Served-By $(hostname);
+
    root /var/www/html;
    index index.html;
    location /redirect_me {
@@ -23,4 +25,6 @@ echo "server {
    }
 }" > default
 sudo mv -f default /etc/nginx/sites-available/default
+sudo nginx -t && sudo nginx -s reload
 sudo service nginx restart
+
