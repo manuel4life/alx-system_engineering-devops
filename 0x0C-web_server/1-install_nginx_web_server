@@ -3,12 +3,10 @@
 #modifies the nginx configuration file.
 
 # update package manager cache
-sudo apt-get update -y
-sudo apt-get install -y nginx
-
-# create the index page
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-# starts the nginx service
-sudo service nginx starts
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo chmod -R 755 /var/www
+sudo service nginx start
 
